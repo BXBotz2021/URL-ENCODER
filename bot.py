@@ -1,12 +1,22 @@
+from dotenv import load_dotenv
+import os
 from pyrogram import Client, filters
 import urllib.parse
 
-# Telegram Bot token from BotFather
-API_ID = "YOUR_API_ID"  # You can get this from my.telegram.org
-API_HASH = "YOUR_API_HASH"  # You can get this from my.telegram.org
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # BotFather's token
+# Load environment variables from the .env file
+load_dotenv()
 
-# Initialize Pyrogram Client
+# Get the variables from the environment
+API_ID = os.getenv("API_ID")
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+# Check if the variables are loaded correctly
+if not all([API_ID, API_HASH, BOT_TOKEN]):
+    print("Error: Missing environment variables. Please check your .env file.")
+    exit(1)
+
+# Initialize Pyrogram Client with environment variables
 app = Client("url_encoder_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 # Function to encode a string to URL format
@@ -30,3 +40,4 @@ def send_encoded_url(client, message):
 
 # Run the bot
 app.run()
+
