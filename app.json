@@ -1,0 +1,32 @@
+{
+  "name": "url-encoder-bot",
+  "description": "A simple Telegram bot that encodes messages into URL format",
+  "repository": "https://github.com/BXBotz2021/URL-ENCODER",
+  "keywords": ["telegram", "bot", "url encoding"],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Your Telegram API ID",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Your Telegram API Hash",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Your Bot's token from BotFather",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
+
