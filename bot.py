@@ -7,9 +7,9 @@ import urllib.parse
 load_dotenv()
 
 # Get the variables from the environment
-API_ID = os.getenv("API_ID")
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_ID = os.getenv("API_ID", "7813390")  # Default to your API ID if the environment variable is not set
+API_HASH = os.getenv("API_HASH", "1faadd9cc60374bca1e88c2f44e3ee2f")  # Default to your API hash if not set
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8067797903:AAFp6NibSVxP_oWSLvG0MQX5E5_va9GDKOA")  # Default to your bot token if not set
 
 # Check if the variables are loaded correctly
 if not all([API_ID, API_HASH, BOT_TOKEN]):
